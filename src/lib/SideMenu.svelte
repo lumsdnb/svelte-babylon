@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {my_store} from '../store';
+	import {my_store, slider} from '../store';
 </script>
 
 
@@ -8,14 +8,18 @@
 	<label>
 		<input type=checkbox bind:checked={$my_store}>
 		toggle extra object
+		<input type="range" bind:value="{$slider}" name="" id="" min="-1" max="1" step="0.01">
 	</label>
 	<button>menu item 2</button>
-	<span>{$my_store}</span>
+	<span>{$slider}</span>
 </div>
 
 <style>
 	div{
 		position: fixed;
 		z-index: 10;
+		background-color: #232323;
+		color: #EEE;
+		padding: 1rem;
 	}
 </style>
