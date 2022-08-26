@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {my_store} from '../store';
+	import {my_store, slider} from '../store';
 
 	import type { Color3, Vector3 } from 'babylonjs';
 	
@@ -44,6 +44,7 @@
 	let sphereColor: Color3;
 	$: if (sphereColor) sphereColor = new BABYLON.Color3($t / 4, 0, 1); // Also reactively changing the Babylon sphere's diffuseColor with our Svelte Tween (lazy example)
 
+
 let BABYLON: typeof import('babylonjs');
 
 
@@ -67,7 +68,7 @@ let BABYLON: typeof import('babylonjs');
 					options={{ diameter: 2, segments: 32 }}
 				/>
 				{/if}
-					<BabylonSphere position={new BABYLON.Vector3(0.5,1,0)}
+					<BabylonSphere position={new BABYLON.Vector3($slider,1,0)}
 					/>
 
 					<BabylonBox position={new BABYLON.Vector3(3,0,3)} options={{ height:3}}
