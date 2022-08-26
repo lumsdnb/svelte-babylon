@@ -1,15 +1,16 @@
-<script>
-	export let yes = false;
+<script lang="ts">
+	import {my_store} from '../store';
 </script>
 
 
 <div>
 	
 	<label>
-		<input type=checkbox bind:checked={yes}>
+		<input type=checkbox bind:checked={$my_store}>
 		toggle extra object
 	</label>
 	<button>menu item 2</button>
+	<span>{$my_store}</span>
 </div>
 
 <style>
