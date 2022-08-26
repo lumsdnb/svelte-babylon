@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Scene } from 'babylonjs';
+	import type { Scene, Color3 } from 'babylonjs';
 
 	import { setContext, getContext, onMount, onDestroy, tick } from 'svelte';
 	import { writable } from 'svelte/store';
@@ -23,6 +23,8 @@
 
 	$: if (BABYLON && $engine && !scene) {
 		scene = new BABYLON.Scene($engine);
+		//add signature color to bg
+		scene.clearColor = new BABYLON.Color3(0.219, 0.247, 0.317);
 
 		$engine.runRenderLoop(renderFunction);
 
