@@ -17,6 +17,9 @@
 	export let position: Vector3 = null;
 	$: if (box) box.position = position;
 
+	export let rotation: Vector3 = null;
+	$: if (box) box.rotation = rotation;
+
 	export let diffuseColor: Color3 = null;
 	$: if (material) material.diffuseColor = diffuseColor;
 
@@ -26,6 +29,7 @@
 		if (!name) name = '';
 		if (!options) options = {};
 		if (!position) position = new BABYLON.Vector3(0, 0, 0);
+		if (!rotation) rotation = new BABYLON.Vector3(0, 0, 0);
 		if (!diffuseColor) diffuseColor = new BABYLON.Color3(1, 1, 1);
 
 		box = BABYLON.MeshBuilder.CreateBox(name, options, $scene);
