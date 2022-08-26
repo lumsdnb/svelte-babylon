@@ -24,11 +24,18 @@
 		if (!position) position = new BABYLON.Vector3(0, 0, 0);
 		if (!target) target = new BABYLON.Vector3(0, 0, 0);
 
-		camera = new BABYLON.ArcRotateCamera("Camera", 3 * Math.PI / 2, -Math.PI / 2, 50, BABYLON.Vector3.Zero(), $scene);
-
-		// camera.applyGravity = true;
-		camera.useFramingBehavior = true;
-
+		camera = new BABYLON.ArcRotateCamera(
+			'Camera',
+			(3 * Math.PI) / 2,
+			-Math.PI / 2,
+			50,
+			BABYLON.Vector3.Zero(),
+			$scene
+		);
+		camera.lowerAlphaLimit = Math.PI * 0.9;
+		camera.upperAlphaLimit = Math.PI * 1.9;
+		camera.lowerRadiusLimit = 5;
+		camera.upperRadiusLimit = 18;
 		const canvas = $scene.getEngine().getRenderingCanvas();
 		camera.attachControl(canvas, true);
 	}
